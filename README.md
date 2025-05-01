@@ -1,2 +1,20 @@
-# Feerolink
-"A visual knowledge interface for thinking through 'images'
+# FeeroLink Viewer
+
+FeeroLinkは、人間の思考・記憶・像をヴィジュアルに接続・記述する次世代インターフェースです。  
+このViewerは、その宇宙の最初の地図を描くためのツールです。
+
+## 主な機能
+- ノードの追加（タイトル・説明・タグ）
+- ノード接続
+- タグによる色分け・フィルタリング
+- 保存・読み込み（JSON）
+
+## 使用技術
+- HTML, JavaScript
+- Cytoscape.js
+
+## 開発者
+共同開発：AI（ChatGPT） × 思考宇宙の創造者（あなた）
+
+## ライセンス
+MIT
