@@ -1,6 +1,7 @@
 <!DOCTYPE html>
-<html>
+<html lang="ja">
 <head>
+  <meta charset="UTF-8">
   <title>FeeroLink Viewer</title>
   <script src="https://unpkg.com/cytoscape/dist/cytoscape.min.js"></script>
   <style>
@@ -12,22 +13,42 @@
   </style>
 </head>
 <body>
-  <h2>FeeroLink Viewer - v0.1</h2>
+  <h2>FeeroLink Viewer – v0.1</h2>
   <div id="cy"></div>
+
   <script>
-    const cy = cytoscape({
-      container: document.getElementById('cy'),
-      elements: [
-        { data: { id: 'stellar', label: 'stellar' } },
-        { data: { id: 'grief', label: 'grief' } },
-        { data: { id: 'e1', source: 'stellar', target: 'grief' } }
-      ],
-      style: [
-        { selector: 'node', style: { 'label': 'data(label)', 'background-color': '#88ccff' }},
-        { selector: 'edge', style: { 'width': 2, 'line-color': '#ccc' }}
-      ],
-      layout: { name: 'grid', rows: 1 }
-    });
+    window.onload = function () {
+      const cy = cytoscape({
+        container: document.getElementById('cy'),
+        elements: [
+          { data: { id: 'stellar', label: 'stellar' } },
+          { data: { id: 'grief', label: 'grief' } },
+          { data: { id: 'e1', source: 'stellar', target: 'grief' } }
+        ],
+        style: [
+          {
+            selector: 'node',
+            style: {
+              'label': 'data(label)',
+              'background-color': '#88ccff',
+              'text-valign': 'center',
+              'text-halign': 'center'
+            }
+          },
+          {
+            selector: 'edge',
+            style: {
+              'width': 2,
+              'line-color': '#ccc'
+            }
+          }
+        ],
+        layout: {
+          name: 'grid',
+          rows: 1
+        }
+      });
+    };
   </script>
 </body>
 </html>
