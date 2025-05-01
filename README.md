@@ -137,5 +137,3 @@ This project is licensed under the [MIT License](https://opensource.org/licenses
 Feel free to fork, expand, remix, or use in your own projects—with a link back appreciated.
 
 ---
-
-Would you like me to generate the **Japanese version** in同じ形式 next?
