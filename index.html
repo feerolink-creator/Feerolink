@@ -2,7 +2,7 @@
 <html lang="ja">
 <head>
   <meta charset="UTF-8">
-  <title>FeeroLink Viewer - 複数タグ対応版</title>
+  <title>FeeroLink Viewer - ノード編集機能付き</title>
   <script src="https://unpkg.com/cytoscape/dist/cytoscape.min.js"></script>
   <style>
     #cy {
@@ -10,19 +10,20 @@
       height: 400px;
       border: 1px solid #aaa;
     }
-    #info, #controls {
+    #info, #controls, #edit {
       margin-top: 10px;
       font-family: sans-serif;
     }
-    input[type="text"] {
-      margin: 5px;
+    input[type="text"], textarea {
+      margin: 4px 0;
     }
   </style>
 </head>
 <body>
-  <h2>FeeroLink Viewer - タグ複数対応プロトタイプ</h2>
+  <h2>FeeroLink Viewer - ノード編集プロトタイプ</h2>
 
   <div id="controls">
+    <h3>ノード追加</h3>
     <label>タイトル：</label>
     <input type="text" id="title" />
     <label>説明：</label>
@@ -30,41 +31,39 @@
     <label>タグ（カンマ区切り）:</label>
     <input type="text" id="tags" />
     <button onclick="addNode()">ノード追加</button>
-    <br><br>
-    <label>ノード1：</label>
-    <input type="text" id="source" />
-    <label>ノード2：</label>
-    <input type="text" id="target" />
-    <button onclick="connectNodes()">ノード接続</button>
+  </div>
+
+  <div id="edit" style="display:none;">
+    <h3>ノード編集</h3>
+    <label>タイトル（ID）：</label>
+    <input type="text" id="editTitle" />
+    <label>説明：</label>
+    <textarea id="editDescription" rows="2" cols="40"></textarea>
+    <label>タグ（カンマ区切り）：</label>
+    <input type="text" id="editTags" />
+    <button onclick="saveEdit()">保存</button>
   </div>
 
   <div id="cy"></div>
-  <div id="info">ノードをクリックすると、説明とタグが表示されます。</div>
+  <div id="info">ノードをクリックすると、編集できます。</div>
 
   <script>
-    let descriptions = {
-      "stellar": "尊厳が守られている世界の、優しさ、尊さを表せているように思ってきた。",
-      "grief": "誰にも見つからず、奥底で静かに降り積もる感情。"
-    };
-
-    let tags = {
-      "stellar": ["尊厳", "静寂"],
-      "grief": ["喪失", "静寂"]
-    };
-
-    const tagColors = {
-      "尊厳": "#88ccff",
-      "喪失": "#cccccc",
-      "希望": "#ffff99",
-      "孤独": "#dda0dd",
-      "静寂": "#a0c4ff"
+    let nodeData = {
+      "stellar": {
+        description: "尊厳が守られている世界の、優しさ、尊さを表せているように思ってきた。この子は、暴力から守られている。やわらかな時間の中にいる。",
+        tags: ["尊厳", "非暴力"]
+      },
+      "grief": {
+        description: "誰にも見つからず、奥底で静かに降り積もる感情。",
+        tags: ["喪失", "静寂"]
+      }
     };
 
     const cy = cytoscape({
       container: document.getElementById('cy'),
       elements: [
-        { data: { id: 'stellar', label: 'stellar', tags: tags["stellar"] } },
-        { data: { id: 'grief', label: 'grief', tags: tags["grief"] } },
+        { data: { id: 'stellar', label: 'stellar' } },
+        { data: { id: 'grief', label: 'grief' } },
         { data: { id: 'e1', source: 'stellar', target: 'grief' } }
       ],
       style: [
@@ -72,10 +71,7 @@
           selector: 'node',
           style: {
             'label': 'data(label)',
-            'background-color': ele => {
-              const t = ele.data('tags');
-              return tagColors[t && t[0]] || '#dddddd';
-            },
+            'background-color': '#88ccff',
             'text-valign': 'center',
             'text-halign': 'center'
           }
@@ -96,37 +92,60 @@
 
     cy.on('tap', 'node', function(evt){
       const id = evt.target.id();
-      const desc = descriptions[id] || "説明なし";
-      const t = tags[id]?.join(", ") || "タグなし";
-      document.getElementById('info').innerText = `[${id}] ${desc}（タグ: ${t}）`;
+      const data = nodeData[id];
+      if (!data) return;
+
+      document.getElementById('edit').style.display = 'block';
+      document.getElementById('editTitle').value = id;
+      document.getElementById('editDescription').value = data.description;
+      document.getElementById('editTags').value = data.tags.join(',');
+      document.getElementById('info').innerText = `編集中：[${id}]`;
     });
 
     function addNode() {
       const title = document.getElementById('title').value.trim();
       const desc = document.getElementById('description').value.trim();
-      const rawTags = document.getElementById('tags').value.trim();
-      const tagList = rawTags.split(',').map(t => t.trim()).filter(t => t);
+      const tags = document.getElementById('tags').value.split(',').map(t => t.trim());
 
       if (!title || cy.getElementById(title).length > 0) {
         alert("タイトルが空か、すでに存在しています");
         return;
       }
 
-      cy.add({ data: { id: title, label: title, tags: tagList } });
-      descriptions[title] = desc;
-      tags[title] = tagList;
+      cy.add({ data: { id: title, label: title } });
+      nodeData[title] = { description: desc, tags: tags };
       cy.layout({ name: 'grid', rows: 1 }).run();
     }
 
-    function connectNodes() {
-      const source = document.getElementById('source').value.trim();
-      const target = document.getElementById('target').value.trim();
-      if (!cy.getElementById(source).length || !cy.getElementById(target).length) {
-        alert("指定されたノードが存在しません");
+    function saveEdit() {
+      const oldId = document.getElementById('info').innerText.replace('編集中：[','').replace(']','');
+      const newId = document.getElementById('editTitle').value.trim();
+      const desc = document.getElementById('editDescription').value.trim();
+      const tags = document.getElementById('editTags').value.split(',').map(t => t.trim());
+
+      if (!newId) {
+        alert("タイトルを入力してください");
         return;
       }
 
-      cy.add({ data: { id: `e_${source}_${target}`, source: source, target: target } });
+      // ノードIDが変わった場合
+      if (oldId !== newId) {
+        if (cy.getElementById(newId).length > 0) {
+          alert("新しいタイトルが既に存在しています");
+          return;
+        }
+        const oldNode = cy.getElementById(oldId);
+        cy.remove(oldNode);
+        cy.add({ data: { id: newId, label: newId } });
+        delete nodeData[oldId];
+      } else {
+        const node = cy.getElementById(newId);
+        node.data('label', newId);
+      }
+
+      nodeData[newId] = { description: desc, tags: tags };
+      document.getElementById('edit').style.display = 'none';
+      document.getElementById('info').innerText = `[${newId}] 編集完了`;
       cy.layout({ name: 'grid', rows: 1 }).run();
     }
   </script>
