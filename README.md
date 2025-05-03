@@ -21,7 +21,6 @@ FeeroLink創設者：tatsuki
 MIT
 
 
-
 # 1.FeeroLinkとは
 
 FeeroLinkは、人間の思考・記憶・像・感情を「ノード」として構造的に記録し、
@@ -137,3 +136,9 @@ This project is licensed under the [MIT License](https://opensource.org/licenses
 Feel free to fork, expand, remix, or use in your own projects—with a link back appreciated.
 
 ---
+
+## 哲学的背景
+
+FeeroLink に込められた思想や構想については、以下のファイルをご覧ください：
+
+→ [docs/philosophy.md](docs/philosophy.md)
