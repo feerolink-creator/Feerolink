@@ -2,170 +2,122 @@
 <html lang="ja">
 <head>
   <meta charset="UTF-8">
-  <title>FeeroLink Viewer - タグ類似スコア付き</title>
+  <title>FeeroLink Viewer - タグスコア強化版</title>
   <script src="https://unpkg.com/cytoscape/dist/cytoscape.min.js"></script>
   <style>
     #cy {
       width: 100%;
-      height: 400px;
+      height: 500px;
       border: 1px solid #aaa;
     }
-    #info, #controls {
+    #controls, #info {
       margin-top: 10px;
       font-family: sans-serif;
+    }
+    input[type="text"] {
+      margin-right: 10px;
     }
   </style>
 </head>
 <body>
-  <h2>FeeroLink Viewer - タグ類似スコア付きプロトタイプ</h2>
 
-  <div id="controls">
-    <label>タイトル：</label>
-    <input type="text" id="title" />
-    <label>説明：</label>
-    <input type="text" id="description" size="40" />
-    <label>タグ（カンマ区切り）：</label>
-    <input type="text" id="tag" />
-    <button onclick="addNode()">ノード追加</button>
-    <br><br>
-    <label>接続：ノード1：</label>
-    <input type="text" id="source" />
-    <label>ノード2：</label>
-    <input type="text" id="target" />
-    <button onclick="connectNodes()">ノード接続</button>
-    <br><br>
-    <button onclick="calculateTagSimilarity()">タグ類似スコア表示</button>
-  </div>
+<h2>FeeroLink Viewer - タグスコア強化版</h2>
 
-  <div id="cy"></div>
-  <div id="info">ノードをクリックすると、説明がここに表示されます。</div>
+<div id="controls">
+  <label>タイトル：</label>
+  <input type="text" id="title" />
+  <label>説明：</label>
+  <input type="text" id="description" size="40" />
+  <label>タグ（カンマ区切り）：</label>
+  <input type="text" id="tag" />
+  <button onclick="addNode()">ノード追加＋自動接続</button>
+</div>
 
-  <script>
-    let descriptions = {
-      "stellar": "尊厳が守られている世界の、優しさ、尊さを表せているように思ってきた。この子は、暴力から守られている。やわらかな時間の中にいる。",
-      "grief": "誰にも見つからず、奥底で静かに降り積もる感情。"
-    };
+<div id="cy"></div>
+<div id="info">ノードをクリックすると、説明がここに表示されます。</div>
 
-    let tags = {
-      "stellar": ["尊厳", "非暴力", "静的時間"],
-      "grief": ["喪失", "孤独", "静寂"]
-    };
+<script>
+  let descriptions = {
+    "stellar": "尊厳が守られている世界の、優しさ、尊さを表せているように思ってきた。この子は、暴力から守られている。やわらかな時間の中にいる。",
+    "grief": "誰にも見つからず、奥底で静かに降り積もる感情。"
+  };
 
-    const tagColors = {
-      "尊厳": "#88ccff",
-      "喪失": "#cccccc",
-      "希望": "#ffff99",
-      "孤独": "#dda0dd",
-      "静寂": "#a0c4ff",
-      "非暴力": "#c4f0c5",
-      "静的時間": "#ffd6a5"
-    };
+  let tags = {
+    "stellar": ["尊厳", "非暴力", "静的時間"],
+    "grief": ["喪失", "静寂", "孤独"]
+  };
 
-    const cy = cytoscape({
-      container: document.getElementById('cy'),
-      elements: [
-        { data: { id: 'stellar', label: 'stellar', tags: tags['stellar'] } },
-        { data: { id: 'grief', label: 'grief', tags: tags['grief'] } },
-        { data: { id: 'e1', source: 'stellar', target: 'grief' } }
-      ],
-      style: [
-        {
-          selector: 'node',
-          style: {
-            'label': 'data(label)',
-            'background-color': function(ele) {
-              const tagList = ele.data('tags') || [];
-              return tagColors[tagList[0]] || '#dddddd';
-            },
-            'text-valign': 'center',
-            'text-halign': 'center'
-          }
-        },
-        {
-          selector: 'edge',
-          style: {
-            'width': 2,
-            'line-color': '#bbb'
-          }
+  const threshold = 0.3;
+
+  const cy = cytoscape({
+    container: document.getElementById('cy'),
+    elements: [
+      { data: { id: 'stellar', label: 'stellar', tag: '尊厳' } },
+      { data: { id: 'grief', label: 'grief', tag: '喪失' } }
+    ],
+    style: [
+      {
+        selector: 'node',
+        style: {
+          'label': 'data(label)',
+          'background-color': '#88ccff',
+          'text-valign': 'center',
+          'text-halign': 'center'
         }
-      ],
-      layout: {
-        name: 'grid',
-        rows: 1
-      }
-    });
-
-    cy.on('tap', 'node', function(evt){
-      const nodeId = evt.target.id();
-      const text = descriptions[nodeId] || "説明なし";
-      const tagList = tags[nodeId] || [];
-      document.getElementById('info').innerText = `[${nodeId}] ${text}（タグ: ${tagList.join(', ')}）`;
-    });
-
-    function addNode() {
-      const title = document.getElementById('title').value.trim();
-      const desc = document.getElementById('description').value.trim();
-      const tagsInput = document.getElementById('tag').value.trim();
-
-      if (!title || cy.getElementById(title).length > 0) {
-        alert("タイトルが空か、すでに存在しています");
-        return;
-      }
-
-      const tagList = tagsInput.split(',').map(t => t.trim());
-      descriptions[title] = desc;
-      tags[title] = tagList;
-
-      cy.add({ data: { id: title, label: title, tags: tagList } });
-      cy.layout({ name: 'grid', rows: 1 }).run();
-    }
-
-    function connectNodes() {
-      const source = document.getElementById('source').value.trim();
-      const target = document.getElementById('target').value.trim();
-      if (!cy.getElementById(source).length || !cy.getElementById(target).length) {
-        alert("指定されたノードが存在しません");
-        return;
-      }
-
-      cy.add({ data: { id: `e_${source}_${target}`, source: source, target: target } });
-      cy.layout({ name: 'grid', rows: 1 }).run();
-    }
-
-    function calculateTagSimilarity() {
-      const nodeIds = Object.keys(tags);
-      for (let i = 0; i < nodeIds.length; i++) {
-        for (let j = i + 1; j < nodeIds.length; j++) {
-          const id1 = nodeIds[i];
-          const id2 = nodeIds[j];
-          const tags1 = new Set(tags[id1]);
-          const tags2 = new Set(tags[id2]);
-          const intersection = [...tags1].filter(x => tags2.has(x));
-          const union = new Set([...tags1, ...tags2]);
-          const similarity = (1 - intersection.length / union.size).toFixed(2);
-
-          if (!cy.getElementById(`e_${id1}_${id2}`).length && !cy.getElementById(`e_${id2}_${id1}`).length) {
-            cy.add({
-              data: {
-                id: `e_${id1}_${id2}`,
-                source: id1,
-                target: id2,
-                label: similarity
-              }
-            });
-          }
+      },
+      {
+        selector: 'edge',
+        style: {
+          'width': function(ele) {
+            const score = ele.data('weight') || 0.5;
+            return 6 * (1 - score);
+          },
+          'line-color': '#bbb',
+          'curve-style': 'bezier'
         }
       }
-
-      cy.style().selector('edge').style({
-        'label': 'data(label)',
-        'font-size': '10px',
-        'text-rotation': 'autorotate',
-        'text-margin-y': -10
-      }).update();
-
-      cy.layout({ name: 'grid', rows: 1 }).run();
+    ],
+    layout: {
+      name: 'grid',
+      rows: 1
     }
-  </script>
+  });
+
+  cy.on('tap', 'node', function(evt){
+    const id = evt.target.id();
+    const desc = descriptions[id] || "説明なし";
+    const tag = tags[id] ? tags[id].join(', ') : "タグなし";
+    document.getElementById('info').innerText = `[${id}] ${desc}（タグ: ${tag}）`;
+  });
+
+  function addNode() {
+    const title = document.getElementById('title').value.trim();
+    const desc = document.getElementById('description').value.trim();
+    const tagStr = document.getElementById('tag').value.trim();
+    if (!title || cy.getElementById(title).length > 0) {
+      alert("タイトルが空か、すでに存在しています");
+      return;
+    }
+
+    const tagArr = tagStr.split(',').map(t => t.trim());
+    descriptions[title] = desc;
+    tags[title] = tagArr;
+
+    cy.add({ data: { id: title, label: title, tag: tagArr.join(',') } });
+
+    for (let id in tags) {
+      if (id === title) continue;
+      const overlap = tags[title].filter(t => tags[id].includes(t));
+      const union = new Set([...tags[title], ...tags[id]]);
+      const score = 1 - (overlap.length / union.size);
+      if (score < threshold) {
+        cy.add({ data: { id: `e_${title}_${id}`, source: title, target: id, weight: score } });
+      }
+    }
+
+    cy.layout({ name: 'grid', rows: 1 }).run();
+  }
+</script>
+
 </body>
 </html>
