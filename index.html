@@ -2,7 +2,7 @@
 <html lang="ja">
 <head>
   <meta charset="UTF-8">
-  <title>FeeroLink Viewer - ノード接続機能付き</title>
+  <title>FeeroLink Viewer - タグ色分け付き</title>
   <script src="https://unpkg.com/cytoscape/dist/cytoscape.min.js"></script>
   <style>
     #cy {
@@ -20,61 +20,26 @@
   </style>
 </head>
 <body>
-  <h2>FeeroLink Viewer - ノード追加＋接続プロトタイプ</h2>
+  <h2>FeeroLink Viewer - タグ色分け付き</h2>
 
   <div id="controls">
     <label>タイトル：</label>
     <input type="text" id="title" />
     <label>説明：</label>
     <input type="text" id="description" size="50" />
+    <label>タグ（1個）：</label>
+    <input type="text" id="tag" />
     <button onclick="addNode()">ノード追加</button>
     <br><br>
-    <label>接続するノード1：</label>
+    <label>接続：ノード1：</label>
     <input type="text" id="source" />
     <label>ノード2：</label>
     <input type="text" id="target" />
     <button onclick="connectNodes()">ノード接続</button>
-    <!-- 保存ボタン -->
-<button onclick="saveMap()">保存（JSON）</button>
-<!-- 読み込みボタン -->
-<input type="file" id="fileInput" />
-<button onclick="loadMap()">読み込み</button>
-<script>
-  function saveMap() {
-    const data = {
-      elements: cy.json().elements,
-      descriptions: descriptions
-    };
-    const blob = new Blob([JSON.stringify(data, null, 2)], { type: "application/json" });
-    const url = URL.createObjectURL(blob);
-    const a = document.createElement('a');
-    a.href = url;
-    a.download = "feerolink_map.json";
-    a.click();
-    URL.revokeObjectURL(url);
-  }
-  function loadMap() {
-  const fileInput = document.getElementById('fileInput');
-  const file = fileInput.files[0];
-  if (!file) {
-    alert("ファイルを選択してください");
-    return;
-  }
-  const reader = new FileReader();
-  reader.onload = function(e) {
-    const data = JSON.parse(e.target.result);
-    cy.elements().remove(); // 既存のノードとエッジを削除
-    cy.add(data.elements);  // 新しいデータを追加
-    descriptions = data.descriptions || {}; // 説明も復元
-    cy.layout({ name: 'grid', rows: 1 }).run();
-  };
-  reader.readAsText(file);
-}
-</script>
   </div>
 
   <div id="cy"></div>
-  <div id="info">ノードをクリックすると、説明がここに表示されます。</div>
+  <div id="info">ノードをクリックすると、説明とタグがここに表示されます。</div>
 
   <script>
     let descriptions = {
@@ -82,11 +47,24 @@
       "grief": "誰にも見つからず、奥底で静かに降り積もる感情。"
     };
 
+    let tags = {
+      "stellar": "尊厳",
+      "grief": "喪失"
+    };
+
+    const tagColors = {
+      "尊厳": "#88ccff",
+      "喪失": "#cccccc",
+      "希望": "#ffff99",
+      "孤独": "#dda0dd",
+      "静寂": "#a0c4ff"
+    };
+
     const cy = cytoscape({
       container: document.getElementById('cy'),
       elements: [
-        { data: { id: 'stellar', label: 'stellar' } },
-        { data: { id: 'grief', label: 'grief' } },
+        { data: { id: 'stellar', label: 'stellar', tag: '尊厳' } },
+        { data: { id: 'grief', label: 'grief', tag: '喪失' } },
         { data: { id: 'e1', source: 'stellar', target: 'grief' } }
       ],
       style: [
@@ -94,7 +72,10 @@
           selector: 'node',
           style: {
             'label': 'data(label)',
-            'background-color': '#88ccff',
+            'background-color': function(ele) {
+              const tag = ele.data('tag');
+              return tagColors[tag] || '#dddddd';
+            },
             'text-valign': 'center',
             'text-halign': 'center'
           }
@@ -103,7 +84,7 @@
           selector: 'edge',
           style: {
             'width': 2,
-            'line-color': '#ccc'
+            'line-color': '#bbb'
           }
         }
       ],
@@ -116,19 +97,22 @@
     cy.on('tap', 'node', function(evt){
       const nodeId = evt.target.id();
       const text = descriptions[nodeId] || "説明なし";
-      document.getElementById('info').innerText = `[${nodeId}] ${text}`;
+      const tag = tags[nodeId] || "タグなし";
+      document.getElementById('info').innerText = `[${nodeId}] ${text}（タグ: ${tag}）`;
     });
 
     function addNode() {
       const title = document.getElementById('title').value.trim();
       const desc = document.getElementById('description').value.trim();
+      const tag = document.getElementById('tag').value.trim();
       if (!title || cy.getElementById(title).length > 0) {
         alert("タイトルが空か、すでに存在しています");
         return;
       }
 
-      cy.add({ data: { id: title, label: title } });
+      cy.add({ data: { id: title, label: title, tag: tag } });
       descriptions[title] = desc;
+      tags[title] = tag;
       cy.layout({ name: 'grid', rows: 1 }).run();
     }
 
