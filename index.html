@@ -35,25 +35,9 @@
     <input type="text" id="target" />
     <button onclick="connectNodes()">ノード接続</button>
   </div>
-    <!-- 保存ボタン -->
-    <button onclick="saveMap()">保存（JSON）</button>
 
-    <script>
-      function saveMap() {
-        const data = {
-          elements: cy.json().elements,
-          descriptions: descriptions
-        };
-        const blob = new Blob([JSON.stringify(data, null, 2)], { type: "application/json" });
-        const url = URL.createObjectURL(blob);
-        const a = document.createElement('a');
-        a.href = url;
-        a.download = "feerolink_map.json";
-        a.click();
-        URL.revokeObjectURL(url);
-  } 
-      <div id="cy"></div>
-      <div id="info">ノードをクリックすると、説明がここに表示されます。</div>
+  <div id="cy"></div>
+  <div id="info">ノードをクリックすると、説明がここに表示されます。</div>
 
   <script>
     let descriptions = {
@@ -74,8 +58,8 @@
           style: {
             'label': 'data(label)',
             'background-color': '#88ccff',
-            'text-vertical-align': 'center',
-            'text-horizontal-align': 'center'
+            'text-valign': 'center',
+            'text-halign': 'center'
           }
         },
         {
@@ -122,7 +106,6 @@
       cy.add({ data: { id: `e_${source}_${target}`, source: source, target: target } });
       cy.layout({ name: 'grid', rows: 1 }).run();
     }
-
- </script>
+  </script>
 </body>
 </html>
