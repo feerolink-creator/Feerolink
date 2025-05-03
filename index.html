@@ -2,7 +2,7 @@
 <html lang="ja">
 <head>
   <meta charset="UTF-8">
-  <title>FeeroLink Viewer - 編集機能付き</title>
+  <title>FeeroLink Viewer - 複数タグ対応版</title>
   <script src="https://unpkg.com/cytoscape/dist/cytoscape.min.js"></script>
   <style>
     #cy {
@@ -20,18 +20,18 @@
   </style>
 </head>
 <body>
-  <h2>FeeroLink Viewer - ノード編集プロトタイプ</h2>
+  <h2>FeeroLink Viewer - タグ複数対応プロトタイプ</h2>
 
   <div id="controls">
     <label>タイトル：</label>
     <input type="text" id="title" />
     <label>説明：</label>
     <input type="text" id="description" size="40" />
-    <label>タグ：</label>
-    <input type="text" id="tag" />
-    <button onclick="addOrUpdateNode()">追加/更新</button>
+    <label>タグ（カンマ区切り）:</label>
+    <input type="text" id="tags" />
+    <button onclick="addNode()">ノード追加</button>
     <br><br>
-    <label>接続：ノード1：</label>
+    <label>ノード1：</label>
     <input type="text" id="source" />
     <label>ノード2：</label>
     <input type="text" id="target" />
@@ -39,12 +39,18 @@
   </div>
 
   <div id="cy"></div>
-  <div id="info">ノードをクリックすると、情報がフォームに表示されます。</div>
+  <div id="info">ノードをクリックすると、説明とタグが表示されます。</div>
 
   <script>
-    let descriptions = {};
-    let tags = {};
-    let selectedNodeId = null;
+    let descriptions = {
+      "stellar": "尊厳が守られている世界の、優しさ、尊さを表せているように思ってきた。",
+      "grief": "誰にも見つからず、奥底で静かに降り積もる感情。"
+    };
+
+    let tags = {
+      "stellar": ["尊厳", "静寂"],
+      "grief": ["喪失", "静寂"]
+    };
 
     const tagColors = {
       "尊厳": "#88ccff",
@@ -56,15 +62,19 @@
 
     const cy = cytoscape({
       container: document.getElementById('cy'),
-      elements: [],
+      elements: [
+        { data: { id: 'stellar', label: 'stellar', tags: tags["stellar"] } },
+        { data: { id: 'grief', label: 'grief', tags: tags["grief"] } },
+        { data: { id: 'e1', source: 'stellar', target: 'grief' } }
+      ],
       style: [
         {
           selector: 'node',
           style: {
             'label': 'data(label)',
             'background-color': ele => {
-              const tag = ele.data('tag');
-              return tagColors[tag] || '#dddddd';
+              const t = ele.data('tags');
+              return tagColors[t && t[0]] || '#dddddd';
             },
             'text-valign': 'center',
             'text-halign': 'center'
@@ -84,35 +94,33 @@
       }
     });
 
-    function addOrUpdateNode() {
+    cy.on('tap', 'node', function(evt){
+      const id = evt.target.id();
+      const desc = descriptions[id] || "説明なし";
+      const t = tags[id]?.join(", ") || "タグなし";
+      document.getElementById('info').innerText = `[${id}] ${desc}（タグ: ${t}）`;
+    });
+
+    function addNode() {
       const title = document.getElementById('title').value.trim();
       const desc = document.getElementById('description').value.trim();
-      const tag = document.getElementById('tag').value.trim();
+      const rawTags = document.getElementById('tags').value.trim();
+      const tagList = rawTags.split(',').map(t => t.trim()).filter(t => t);
 
-      if (!title) {
-        alert("タイトルを入力してください");
+      if (!title || cy.getElementById(title).length > 0) {
+        alert("タイトルが空か、すでに存在しています");
         return;
       }
 
-      if (cy.getElementById(title).length === 0) {
-        // 新規ノード追加
-        cy.add({ data: { id: title, label: title, tag: tag } });
-      } else {
-        // 既存ノード更新
-        cy.getElementById(title).data('label', title);
-        cy.getElementById(title).data('tag', tag);
-      }
-
+      cy.add({ data: { id: title, label: title, tags: tagList } });
       descriptions[title] = desc;
-      tags[title] = tag;
-
+      tags[title] = tagList;
       cy.layout({ name: 'grid', rows: 1 }).run();
     }
 
     function connectNodes() {
       const source = document.getElementById('source').value.trim();
       const target = document.getElementById('target').value.trim();
-
       if (!cy.getElementById(source).length || !cy.getElementById(target).length) {
         alert("指定されたノードが存在しません");
         return;
@@ -121,17 +129,6 @@
       cy.add({ data: { id: `e_${source}_${target}`, source: source, target: target } });
       cy.layout({ name: 'grid', rows: 1 }).run();
     }
-
-    cy.on('tap', 'node', function(evt){
-      const nodeId = evt.target.id();
-      selectedNodeId = nodeId;
-      document.getElementById('title').value = nodeId;
-      document.getElementById('description').value = descriptions[nodeId] || "";
-      document.getElementById('tag').value = tags[nodeId] || "";
-
-      const infoText = `[${nodeId}] ${descriptions[nodeId] || ""}（タグ: ${tags[nodeId] || "なし"}）`;
-      document.getElementById('info').innerText = infoText;
-    });
   </script>
 </body>
 </html>
