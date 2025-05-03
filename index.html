@@ -36,7 +36,9 @@
     <button onclick="connectNodes()">ノード接続</button>
     <!-- 保存ボタン -->
 <button onclick="saveMap()">保存（JSON）</button>
-
+<!-- 読み込みボタン -->
+<input type="file" id="fileInput" />
+<button onclick="loadMap()">読み込み</button>
 <script>
   function saveMap() {
     const data = {
@@ -51,6 +53,23 @@
     a.click();
     URL.revokeObjectURL(url);
   }
+  function loadMap() {
+  const fileInput = document.getElementById('fileInput');
+  const file = fileInput.files[0];
+  if (!file) {
+    alert("ファイルを選択してください");
+    return;
+  }
+  const reader = new FileReader();
+  reader.onload = function(e) {
+    const data = JSON.parse(e.target.result);
+    cy.elements().remove(); // 既存のノードとエッジを削除
+    cy.add(data.elements);  // 新しいデータを追加
+    descriptions = data.descriptions || {}; // 説明も復元
+    cy.layout({ name: 'grid', rows: 1 }).run();
+  };
+  reader.readAsText(file);
+}
 </script>
   </div>
 
