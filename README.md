@@ -142,3 +142,6 @@ Feel free to fork, expand, remix, or use in your own projects—with a link back
 FeeroLink に込められた思想や構想については、以下のファイルをご覧ください：
 
 → [docs/philosophy.md](docs/philosophy.md)
+
+## 未来構想
+FeeroLinkの将来的な展開については [FUTURE.md](docs/FUTURE.md) に記載しています。
