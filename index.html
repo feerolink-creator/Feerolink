@@ -34,6 +34,24 @@
     <label>ノード2：</label>
     <input type="text" id="target" />
     <button onclick="connectNodes()">ノード接続</button>
+    <!-- 保存ボタン -->
+<button onclick="saveMap()">保存（JSON）</button>
+
+<script>
+  function saveMap() {
+    const data = {
+      elements: cy.json().elements,
+      descriptions: descriptions
+    };
+    const blob = new Blob([JSON.stringify(data, null, 2)], { type: "application/json" });
+    const url = URL.createObjectURL(blob);
+    const a = document.createElement('a');
+    a.href = url;
+    a.download = "feerolink_map.json";
+    a.click();
+    URL.revokeObjectURL(url);
+  }
+</script>
   </div>
 
   <div id="cy"></div>
