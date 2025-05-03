@@ -34,6 +34,8 @@
     <input type="text" id="deleteNodeId" />
     <button onclick="deleteNode()">ノード削除</button>
     <button onclick="suggestConnectionsByTags()">タグ類似度で自動接続</button>
+    <!-- ボタンを追加（controls内など好きな位置に） -->
+　  <button onclick="showSimilarityScores()">タグ類似スコア表示</button>
   </div>
 
   <div id="cy"></div>
@@ -71,14 +73,24 @@
           }
         },
         {
+          // スタイルにラベル（score）を表示させる
+     {
           selector: 'edge',
           style: {
+            'label': 'data(label)',
             'width': 2,
-            'line-color': '#bbb'
+            'line-color': '#bbb',
+            'text-rotation': 'autorotate',
+            'font-size': '10px',
+            'text-margin-y': -10,
+            'color': '#444'
+         }
+     }
           }
         }
       ],
       layout: { name: 'grid', rows: 1 }
+      
     });
 
     cy.on('tap', 'node', function(evt) {
@@ -160,7 +172,24 @@
      }
 
      cy.layout({ name: 'grid', rows: 1 }).run();
-}
+  }
+
+    // タグ類似スコアを計算＆エッジにラベル表示
+     function showSimilarityScores() {
+     cy.edges().forEach(edge => {
+           const source = edge.data('source');
+           const target = edge.data('target');
+
+           const tags1 = tags[source] ? tags[source].split(',').map(t => t.trim()) : [];
+           const tags2 = tags[target] ? tags[target].split(',').map(t => t.trim()) : [];
+
+           const common = tags1.filter(t => tags2.includes(t));
+           const total = new Set([...tags1, ...tags2]).size;
+           const score = total > 0 ? (common.length / total).toFixed(2) : "0.00";
+
+           edge.data('label', score);
+         });
+      }
   </script>
 </body>
 </html>
