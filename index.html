@@ -2,7 +2,7 @@
 <html lang="ja">
 <head>
   <meta charset="UTF-8">
-  <title>FeeroLink Viewer - 複数タグ対応</title>
+  <title>FeeroLink Viewer - ノード接続機能付き</title>
   <script src="https://unpkg.com/cytoscape/dist/cytoscape.min.js"></script>
   <style>
     #cy {
@@ -20,52 +20,53 @@
   </style>
 </head>
 <body>
-  <h2>FeeroLink Viewer - 複数タグ対応プロトタイプ</h2>
+  <h2>FeeroLink Viewer - ノード追加＋接続プロトタイプ</h2>
 
   <div id="controls">
     <label>タイトル：</label>
     <input type="text" id="title" />
     <label>説明：</label>
     <input type="text" id="description" size="50" />
-    <label>タグ（カンマ区切り）:</label>
-    <input type="text" id="tags" />
     <button onclick="addNode()">ノード追加</button>
+    <br><br>
+    <label>接続するノード1：</label>
+    <input type="text" id="source" />
+    <label>ノード2：</label>
+    <input type="text" id="target" />
+    <button onclick="connectNodes()">ノード接続</button>
   </div>
 
   <div id="cy"></div>
-  <div id="info">ノードをクリックすると、説明とタグが表示されます。</div>
+  <div id="info">ノードをクリックすると、説明がここに表示されます。</div>
 
   <script>
-    let descriptions = {};
-    let tags = {};
-    let tagColors = {};
-
-    function getRandomColor() {
-      return '#' + Math.floor(Math.random() * 16777215).toString(16).padStart(6, '0');
-    }
+    let descriptions = {
+      "stellar": "尊厳が守られている世界の、優しさ、尊さを表せているように思ってきた。この子は、暴力から守られている。やわらかな時間の中にいる。",
+      "grief": "誰にも見つからず、奥底で静かに降り積もる感情。"
+    };
 
     const cy = cytoscape({
       container: document.getElementById('cy'),
-      elements: [],
+      elements: [
+        { data: { id: 'stellar', label: 'stellar' } },
+        { data: { id: 'grief', label: 'grief' } },
+        { data: { id: 'e1', source: 'stellar', target: 'grief' } }
+      ],
       style: [
         {
           selector: 'node',
           style: {
             'label': 'data(label)',
-            'background-color': ele => {
-              const tagList = ele.data('tags') || [];
-              const primaryTag = tagList[0] || "default";
-              return tagColors[primaryTag] || '#cccccc';
-            },
-            'text-valign': 'center',
-            'text-halign': 'center'
+            'background-color': '#88ccff',
+            'text-vertical-align': 'center',
+            'text-horizontal-align': 'center'
           }
         },
         {
           selector: 'edge',
           style: {
             'width': 2,
-            'line-color': '#bbb'
+            'line-color': '#ccc'
           }
         }
       ],
@@ -78,32 +79,31 @@
     cy.on('tap', 'node', function(evt){
       const nodeId = evt.target.id();
       const text = descriptions[nodeId] || "説明なし";
-      const tagList = tags[nodeId] || [];
-      document.getElementById('info').innerText = `[${nodeId}] ${text}（タグ: ${tagList.join(', ')})`;
+      document.getElementById('info').innerText = `[${nodeId}] ${text}`;
     });
 
     function addNode() {
       const title = document.getElementById('title').value.trim();
       const desc = document.getElementById('description').value.trim();
-      const tagInput = document.getElementById('tags').value.trim();
-      const tagList = tagInput.split(',').map(t => t.trim()).filter(t => t);
-
       if (!title || cy.getElementById(title).length > 0) {
         alert("タイトルが空か、すでに存在しています");
         return;
       }
 
-      // 色を自動設定（タグがあれば）
-      tagList.forEach(tag => {
-        if (!tagColors[tag]) {
-          tagColors[tag] = getRandomColor();
-        }
-      });
-
+      cy.add({ data: { id: title, label: title } });
       descriptions[title] = desc;
-      tags[title] = tagList;
+      cy.layout({ name: 'grid', rows: 1 }).run();
+    }
 
-      cy.add({ data: { id: title, label: title, tags: tagList } });
+    function connectNodes() {
+      const source = document.getElementById('source').value.trim();
+      const target = document.getElementById('target').value.trim();
+      if (!cy.getElementById(source).length || !cy.getElementById(target).length) {
+        alert("指定されたノードが存在しません");
+        return;
+      }
+
+      cy.add({ data: { id: `e_${source}_${target}`, source: source, target: target } });
       cy.layout({ name: 'grid', rows: 1 }).run();
     }
   </script>
