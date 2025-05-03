@@ -2,46 +2,61 @@
 <html lang="ja">
 <head>
   <meta charset="UTF-8">
-  <title>FeeroLink Viewer</title>
+  <title>FeeroLink Viewer - 複数タグ対応</title>
   <script src="https://unpkg.com/cytoscape/dist/cytoscape.min.js"></script>
   <style>
     #cy {
       width: 100%;
-      height: 500px;
+      height: 400px;
       border: 1px solid #aaa;
     }
-    #info {
-      margin-top: 15px;
+    #info, #controls {
+      margin-top: 10px;
       font-family: sans-serif;
+    }
+    input[type="text"] {
+      margin-right: 10px;
     }
   </style>
 </head>
 <body>
-  <h2>FeeroLink Viewer</h2>
+  <h2>FeeroLink Viewer - 複数タグ対応プロトタイプ</h2>
+
+  <div id="controls">
+    <label>タイトル：</label>
+    <input type="text" id="title" />
+    <label>説明：</label>
+    <input type="text" id="description" size="50" />
+    <label>タグ（カンマ区切り）:</label>
+    <input type="text" id="tags" />
+    <button onclick="addNode()">ノード追加</button>
+  </div>
 
   <div id="cy"></div>
-  <div id="info">ノードをクリックすると、説明がここに表示されます。</div>
+  <div id="info">ノードをクリックすると、説明とタグが表示されます。</div>
 
   <script>
-    // ノードの説明文
-    const descriptions = {
-      "stellar": "尊厳が守られている世界の、優しさ、尊さを表せているように思ってきた。この子は、暴力から守られている。やわらかな時間の中にいる。",
-      "grief": "誰にも見つからず、奥底で静かに降り積もる感情。"
-    };
+    let descriptions = {};
+    let tags = {};
+    let tagColors = {};
+
+    function getRandomColor() {
+      return '#' + Math.floor(Math.random() * 16777215).toString(16).padStart(6, '0');
+    }
 
     const cy = cytoscape({
       container: document.getElementById('cy'),
-      elements: [
-        { data: { id: 'stellar', label: 'stellar' } },
-        { data: { id: 'grief', label: 'grief' } },
-        { data: { id: 'e1', source: 'stellar', target: 'grief' } }
-      ],
+      elements: [],
       style: [
         {
           selector: 'node',
           style: {
             'label': 'data(label)',
-            'background-color': '#88ccff',
+            'background-color': ele => {
+              const tagList = ele.data('tags') || [];
+              const primaryTag = tagList[0] || "default";
+              return tagColors[primaryTag] || '#cccccc';
+            },
             'text-valign': 'center',
             'text-halign': 'center'
           }
@@ -50,7 +65,7 @@
           selector: 'edge',
           style: {
             'width': 2,
-            'line-color': '#aaa'
+            'line-color': '#bbb'
           }
         }
       ],
@@ -60,12 +75,37 @@
       }
     });
 
-    // ノードをクリックしたときに説明を表示する
-    cy.on('tap', 'node', function(evt) {
+    cy.on('tap', 'node', function(evt){
       const nodeId = evt.target.id();
       const text = descriptions[nodeId] || "説明なし";
-      document.getElementById('info').innerText = `[${nodeId}] ${text}`;
+      const tagList = tags[nodeId] || [];
+      document.getElementById('info').innerText = `[${nodeId}] ${text}（タグ: ${tagList.join(', ')})`;
     });
+
+    function addNode() {
+      const title = document.getElementById('title').value.trim();
+      const desc = document.getElementById('description').value.trim();
+      const tagInput = document.getElementById('tags').value.trim();
+      const tagList = tagInput.split(',').map(t => t.trim()).filter(t => t);
+
+      if (!title || cy.getElementById(title).length > 0) {
+        alert("タイトルが空か、すでに存在しています");
+        return;
+      }
+
+      // 色を自動設定（タグがあれば）
+      tagList.forEach(tag => {
+        if (!tagColors[tag]) {
+          tagColors[tag] = getRandomColor();
+        }
+      });
+
+      descriptions[title] = desc;
+      tags[title] = tagList;
+
+      cy.add({ data: { id: title, label: title, tags: tagList } });
+      cy.layout({ name: 'grid', rows: 1 }).run();
+    }
   </script>
 </body>
 </html>
