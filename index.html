@@ -134,6 +134,32 @@
 
       document.getElementById('info').innerText = `ノード「${nodeId}」を削除しました。`;
     }
+    
+    function suggestConnectionsByTags() {
+ 　   const ids = cy.nodes().map(n => n.id());
+
+      for (let i = 0; i < ids.length; i++) {
+        for (let j = i + 1; j < ids.length; j++) {
+          const idA = ids[i];
+          const idB = ids[j];
+          const tagsA = tags[idA] ? tags[idA].split(',').map(t => t.trim()) : [];
+          const tagsB = tags[idB] ? tags[idB].split(',').map(t => t.trim()) : [];
+
+          const intersection = tagsA.filter(tag => tagsB.includes(tag));
+          const union = [...new Set([...tagsA, ...tagsB])];
+          const distance = 1 - (intersection.length / union.length);
+
+          if (intersection.length > 0 && distance < 0.5) {
+            const confirmMsg = `"${idA}" と "${idB}" を接続しますか？（意味距離: ${distance.toFixed(2)}）\n共通タグ: ${intersection.join(', ')}`;
+            if (confirm(confirmMsg)) {
+              cy.add({ data: { id: `e_${idA}_${idB}`, source: idA, target: idB } });
+            }
+          }
+        }
+     }
+
+     cy.layout({ name: 'grid', rows: 1 }).run();
+}
   </script>
 </body>
 </html>
