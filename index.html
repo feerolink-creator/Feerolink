@@ -36,6 +36,13 @@
     <button onclick="suggestConnectionsByTags()">タグ類似度で自動接続</button>
     <!-- ボタンを追加（controls内など好きな位置に） -->
 　  <button onclick="showSimilarityScores()">タグ類似スコア表示</button>
+    <label>タイトル：</label>
+    <input type="text" id="title" />
+    <label>説明：</label>
+    <input type="text" id="description" size="40" />
+    <label>タグ（カンマ区切り）：</label>
+    <input type="text" id="tag" />
+    <button onclick="addNode()">ノード追加</button>
   </div>
 
   <div id="cy"></div>
@@ -189,6 +196,31 @@
 
            edge.data('label', score);
          });
+      }
+     function addNode() {
+       const title = document.getElementById('title').value.trim();
+       const desc = document.getElementById('description').value.trim();
+       const tagsInput = document.getElementById('tag').value.trim();
+
+       if (!title || cy.getElementById(title).length > 0) {
+         alert("タイトルが空か、またはすでに存在しています");
+         return;
+      }
+
+       const tagList = tagsInput.split(',').map(t => t.trim());
+       descriptions[title] = desc;
+       tags[title] = tagList;
+
+       cy.add({
+         data: {
+           id: title,
+           label: title,
+           tags: tagList
+         }
+       });
+
+       cy.style().update();
+       layoutAndRefresh();
       }
   </script>
 </body>
