@@ -29,6 +29,10 @@
     <label>接続：ノード1：</label><input type="text" id="source">
     <label>ノード2：</label><input type="text" id="target">
     <button onclick="connectNodes()">ノード接続</button>
+    <br><br>
+　  <label>削除するノード：</label>
+    <input type="text" id="deleteNodeId" />
+    <button onclick="deleteNode()">ノード削除</button>
   </div>
 
   <div id="cy"></div>
@@ -113,6 +117,22 @@
       }
       cy.add({ data: { id: `e_${source}_${target}`, source: source, target: target } });
       cy.layout({ name: 'grid', rows: 1 }).run();
+    }
+
+    function deleteNode() {
+      const nodeId = document.getElementById('deleteNodeId').value.trim();
+      const node = cy.getElementById(nodeId);
+      if (!node || node.length === 0) {
+       alert("指定されたノードが存在しません");
+       return;
+    }
+
+  // 削除処理：ノードとエッジを同時に消す
+      cy.remove(node);
+      delete descriptions[nodeId];
+      delete tags[nodeId];
+
+      document.getElementById('info').innerText = `ノード「${nodeId}」を削除しました。`;
     }
   </script>
 </body>
