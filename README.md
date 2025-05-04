@@ -151,7 +151,7 @@ FeeroLinkの将来的な展開については [FUTURE.md](docs/FUTURE.md) に記
 FeeroLinkでは、視覚的思考（Visual Thinking）を核に、思考・感性・関係性の構造を記述・可視化していきます。以下の図は、その思想的背景を直感的に伝えるための「視覚モデル」です。
 
 ### 1. 相対性理論 vs 視覚思考モデル
-![Relativity vs Visual Thinking](/VisualThoughtModels/relativity_vs_visualthink.jpeg)
+![Relativity vs Visual Thinking](docs/VisualThoughtModels/relativity_vs_visualthink.jpeg)
 
 **解説：**  
 左図はアインシュタインの相対性理論における「物質（mass）」と「重力（gravity）」の関係を表したもの。右図はそれを置き換えるように、**「イメージ（image）」が場（field）に影響を及ぼし、他者との関係性に変容をもたらす構造**を示しています。  
@@ -160,7 +160,7 @@ FeeroLinkでは、視覚的思考（Visual Thinking）を核に、思考・感�
 ---
 
 ### 2. 「鮒とメダカ」の関係性モデル（福祉的応用）
-![Crucian Carp & Killifish Relationship Model](/VisualThoughtModels/crucian_and_killifish.jpeg)
+![Crucian Carp & Killifish Relationship Model](docs/VisualThoughtModels/crucian_and_killifish.jpeg)
 
 **解説：**  
 ある研究によれば、「**メダカは天敵である鮒と同じ水槽に入れられると、驚愕反応を示す**」という観察結果が示されています。この図では、人間社会における関係性や環境要因が、**個人の安心や不安、そしてストレス反応にどのような影響を与えるか**を示しています。
