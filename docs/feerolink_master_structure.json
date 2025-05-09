@@ -1,0 +1,78 @@
+{
+  "nodes": [
+    {
+      "id": "feerolink",
+      "label": "FeeroLink",
+      "tag": "core",
+      "description": "Toward a world where the unrecognizable becomes recognizable. A new cognitive revolution modeled after the brain of a Visual Thinker."
+    },
+    {
+      "id": "studio",
+      "label": "FeeroLink Studio",
+      "tag": "implementation",
+      "description": "A space to implement FeeroLink\u2019s design. Engaging with local communities to implement welfare in practice. Symbol: Stellar"
+    },
+    {
+      "id": "expression",
+      "label": "Expression",
+      "tag": "expression",
+      "description": "Designing spaces based on experiences of dignity, human rights, and imagination. Expressive action rooted in personal experience."
+    },
+    {
+      "id": "medicine",
+      "label": "Medicine & Society",
+      "tag": "social",
+      "description": "Integrate with medicine and welfare systems. Using the FeeroLink Viewer to support people with communication difficulties, including the elderly. Visualize background factors and care relay networks."
+    },
+    {
+      "id": "welfare",
+      "label": "Asylum-type Welfare Hubs",
+      "tag": "support",
+      "description": "Developing a self-sustaining, cooperative-style support network. For those with talents, provide management and support to help them utilize their abilities."
+    },
+    {
+      "id": "technology",
+      "label": "Technology",
+      "tag": "technology",
+      "description": "Designing a new OS modeled after a Visual Thinker\u2019s brain. Constructing an integrated database. Future integration with Neuralink."
+    },
+    {
+      "id": "theory",
+      "label": "Theory",
+      "tag": "philosophy",
+      "description": "Aiming to unify quantum theory and relativity. Layer-based observational cognitive theory."
+    }
+  ],
+  "edges": [
+    {
+      "id": "e1",
+      "source": "feerolink",
+      "target": "studio"
+    },
+    {
+      "id": "e2",
+      "source": "feerolink",
+      "target": "expression"
+    },
+    {
+      "id": "e3",
+      "source": "feerolink",
+      "target": "medicine"
+    },
+    {
+      "id": "e4",
+      "source": "feerolink",
+      "target": "welfare"
+    },
+    {
+      "id": "e5",
+      "source": "feerolink",
+      "target": "technology"
+    },
+    {
+      "id": "e6",
+      "source": "feerolink",
+      "target": "theory"
+    }
+  ]
+}
