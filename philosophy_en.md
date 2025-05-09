@@ -4,7 +4,7 @@
 This hand-drawn diagram represents the core philosophy and systemic expansion of the FeeroLink Project.  
 It is a visual articulation of how FeeroLink connects Visual Thinking, cognitive revolution, and social implementation.
 
-![FeeroLink Master Diagram – English](./assets/feerolink_master_en_handdrawn.jpg)
+![FeeroLink Master Diagram – English](./docs/VisualThoughtModels/feerolink_master_en_handdrawn.jpg)
 
 ## Core Statement
 > Toward a world where the unrecognizable becomes recognizable.  
