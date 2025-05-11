@@ -35,16 +35,20 @@ FeeroLinkは、人間の思考・記憶・像をヴィジュアルに接続・�
 
 # FeeroLink Viewer:尊厳を成立させる三層構造モデル / Three-layer Model of Dignity
 
+
 ◆概要 / Overview
 このViewerは、「尊厳を成立させるための構造」を、複数の層にわたって可視化した事例です。
 上位の概念を支えるために、更に下位の層が存在する。
 
+
 -This viewer visualizes a multilayered conceptual model of what constitutes "dignity."
 -Each outer layer supports the inner one, forming an interdependent structure.
+
 
 ◆構造 / Structure
 〇一層目: 心核 (コア) / Layer 1: Core
 　・尊厳 (Dignity)
+
 
 〇二層目: 価値 / Layer 2: Values
 　・自由 (Freedom)
@@ -52,6 +56,7 @@ FeeroLinkは、人間の思考・記憶・像をヴィジュアルに接続・�
 　・尊重 (Respect)
 　・人権 (Human Rights)
 　・表現 (Expression)
+
 
 〇三層目: 支援系 / Layer 3: Supports & Conditions
 　・安心できること (Psychological Safety)
@@ -65,17 +70,21 @@ FeeroLinkは、人間の思考・記憶・像をヴィジュアルに接続・�
 　・支援体系 (Support Systems)
 　・文化・風土 (Cultural Factors)
 
+
 ◆ビューワー使用説明 / How to Use
 ードをクリックすると説明が表示されます
 タグでフィルターし、層を切り替えて表示
 JSONで元データを書き換えてから再表示することも可能
 
+
 -Click on a node to see its explanation. Use the tag filters to toggle layers.
 -You can also load a modified .json to view other versions of the structure.
+
 
 ◆記事 / Notes
 本構造は、人間の尊平を支えるための学習、支援、社会的条件を展開的に描いたモデルです
 FeeroLinkの「計算可能な思想構造」の一例として、ビューワーで実装されています
+
 
 -This structure is a conceptual model representing the foundational elements for protecting dignity.
 -It is implemented in FeeroLink as a prototype for computationally represented ethical frameworks.
