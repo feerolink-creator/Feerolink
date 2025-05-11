@@ -155,7 +155,8 @@ FeeroLink に込められた思想や構想については、以下のファイ�
 → [docs/philosophy.md](docs/philosophy.md)
 
 
-##📘 Dignity-Centered Circular Model
+## Dignity-Centered Circular Model
+
 尊厳を成立させる円環構造モデル（英日併記）
 →[docs/VisualThoughtModels/dignity_model_en.jpg](docs/VisualThoughtModels/dignity_model_en.jpg)[docs/VisualThoughtModels/dignity_model_jp.jpg](docs/VisualThoughtModels/dignity_model_jp.jpg)
 
