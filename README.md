@@ -10,8 +10,7 @@ FeeroLinkは、人間の思考・記憶・像・感情を「ノード」とし�
 - [Visual Thought Models](#visual-thought-models)
 - [FUTURE.md構想](#futuremd構想)
 - [仕様書（docs/philosophy.md など）](#仕様書docsphilosophymd-など)
-- FeeroLink Viewer:尊厳を成立させる三層構造モデル/Three-layer-Model of Dignity(#)
-
+- [Dignity-Centered Circular Model尊厳を成立させる円環構造モデル（英日併記）](##Dignity-Centered-Circular-Model)
 
 # 何ができるの?
 
