@@ -158,7 +158,8 @@ FeeroLink に込められた思想や構想については、以下のファイ�
 ## Dignity-Centered Circular Model
 
 尊厳を成立させる円環構造モデル（英日併記）
-→[docs/VisualThoughtModels/dignity_model_en.jpg](docs/VisualThoughtModels/dignity_model_en.jpg)[docs/VisualThoughtModels/dignity_model_jp.jpg](docs/VisualThoughtModels/dignity_model_jp.jpg)
+→[docs/VisualThoughtModels/dignity_model_en.jpg](docs/VisualThoughtModels/dignity_model_en.jpg) 
+→[docs/VisualThoughtModels/dignity_model_jp.jpg](docs/VisualThoughtModels/dignity_model_jp.jpg)
 
 This conceptual model visualizes the layered factors required to uphold human dignity.
 It is intended to serve as a universal design for both ethical system design and education.
