@@ -12,6 +12,7 @@ FeeroLinkは、人間の思考・記憶・像・感情を「ノード」とし�
 - [仕様書（docs/philosophy.md など）](#仕様書docsphilosophymd-など)
 - FeeroLink Viewer:尊厳を成立させる三層構造モデル/Three-layer-Model of Dignity(#)
 
+
 # 何ができるの?
 
 ・ノードの追加：像や言葉を入力して宇宙の”点”を登録
@@ -30,6 +31,7 @@ FeeroLinkは、人間の思考・記憶・像・感情を「ノード」とし�
 
 FeeroLinkは、人間の思考・記憶・像をヴィジュアルに接続・記述する次世代インターフェースです。  
 このViewerは、その宇宙の最初の地図を描くためのツールです。
+
 
 # FeeroLink Viewer:尊厳を成立させる三層構造モデル / Three-layer Model of Dignity
 
