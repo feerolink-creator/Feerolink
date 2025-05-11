@@ -1,0 +1,254 @@
+{
+  "nodes": [
+    {
+      "data": {
+        "id": "dignity",
+        "label": "尊厳"
+      },
+      "tags": [
+        "core"
+      ],
+      "description": "存在の絶対的価値。守られるべき中心概念。"
+    },
+    {
+      "data": {
+        "id": "freedom",
+        "label": "自由"
+      },
+      "tags": [
+        "values"
+      ],
+      "description": "行動・思考・表現の自由。尊厳の前提条件。"
+    },
+    {
+      "data": {
+        "id": "autonomy",
+        "label": "自己決定権"
+      },
+      "tags": [
+        "values"
+      ],
+      "description": "自分のことを自分で決める権利。"
+    },
+    {
+      "data": {
+        "id": "respect",
+        "label": "尊重"
+      },
+      "tags": [
+        "values"
+      ],
+      "description": "他者の存在や意思を侵さない態度。"
+    },
+    {
+      "data": {
+        "id": "human_rights",
+        "label": "人権"
+      },
+      "tags": [
+        "values"
+      ],
+      "description": "誰にでも保障される基本的な権利。"
+    },
+    {
+      "data": {
+        "id": "expression",
+        "label": "表現"
+      },
+      "tags": [
+        "values"
+      ],
+      "description": "考えや感情を言葉や行動で外に出す力。"
+    },
+    {
+      "data": {
+        "id": "safety",
+        "label": "安心できること"
+      },
+      "tags": [
+        "supports"
+      ],
+      "description": "怖いときに逃げたり助けを求められる環境。"
+    },
+    {
+      "data": {
+        "id": "dialogue",
+        "label": "対話があること"
+      },
+      "tags": [
+        "supports"
+      ],
+      "description": "何かを決めるときに話し合いができる空間。"
+    },
+    {
+      "data": {
+        "id": "care",
+        "label": "助けを求められること"
+      },
+      "tags": [
+        "supports"
+      ],
+      "description": "困ったときに誰かに言っていいと感じられること。"
+    },
+    {
+      "data": {
+        "id": "expression_support",
+        "label": "うまく話せなくても聞いてもらえる"
+      },
+      "tags": [
+        "supports"
+      ],
+      "description": "話し方に関係なく伝えようとする気持ちを受け止めてもらえる。"
+    },
+    {
+      "data": {
+        "id": "diversity_acceptance",
+        "label": "ちがっても大丈夫"
+      },
+      "tags": [
+        "supports"
+      ],
+      "description": "他の人と違っていても責められずにいられる空気。"
+    },
+    {
+      "data": {
+        "id": "law",
+        "label": "法律"
+      },
+      "tags": [
+        "systems"
+      ],
+      "description": "人権や自由を守るための社会的な取り決め。"
+    },
+    {
+      "data": {
+        "id": "education_system",
+        "label": "教育制度"
+      },
+      "tags": [
+        "systems"
+      ],
+      "description": "学びの機会や内容を決める社会のしくみ。"
+    },
+    {
+      "data": {
+        "id": "social_support",
+        "label": "支援体制"
+      },
+      "tags": [
+        "systems"
+      ],
+      "description": "困っている人を助ける仕組みや場所。"
+    },
+    {
+      "data": {
+        "id": "culture",
+        "label": "文化・風土"
+      },
+      "tags": [
+        "systems"
+      ],
+      "description": "日常の中にある価値観や無意識の規範。"
+    }
+  ],
+  "edges": [
+    {
+      "data": {
+        "id": "e_dig_0",
+        "source": "dignity",
+        "target": "freedom"
+      }
+    },
+    {
+      "data": {
+        "id": "e_dig_1",
+        "source": "dignity",
+        "target": "autonomy"
+      }
+    },
+    {
+      "data": {
+        "id": "e_dig_2",
+        "source": "dignity",
+        "target": "respect"
+      }
+    },
+    {
+      "data": {
+        "id": "e_dig_3",
+        "source": "dignity",
+        "target": "human_rights"
+      }
+    },
+    {
+      "data": {
+        "id": "e_dig_4",
+        "source": "dignity",
+        "target": "expression"
+      }
+    },
+    {
+      "data": {
+        "id": "e_val_0",
+        "source": "freedom",
+        "target": "safety"
+      }
+    },
+    {
+      "data": {
+        "id": "e_val_1",
+        "source": "autonomy",
+        "target": "dialogue"
+      }
+    },
+    {
+      "data": {
+        "id": "e_val_2",
+        "source": "respect",
+        "target": "care"
+      }
+    },
+    {
+      "data": {
+        "id": "e_val_3",
+        "source": "human_rights",
+        "target": "expression_support"
+      }
+    },
+    {
+      "data": {
+        "id": "e_val_4",
+        "source": "expression",
+        "target": "diversity_acceptance"
+      }
+    },
+    {
+      "data": {
+        "id": "e_sup_0",
+        "source": "safety",
+        "target": "law"
+      }
+    },
+    {
+      "data": {
+        "id": "e_sup_1",
+        "source": "dialogue",
+        "target": "education_system"
+      }
+    },
+    {
+      "data": {
+        "id": "e_sup_2",
+        "source": "care",
+        "target": "social_support"
+      }
+    },
+    {
+      "data": {
+        "id": "e_sup_3",
+        "source": "expression_support",
+        "target": "culture"
+      }
+    }
+  ]
+}
