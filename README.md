@@ -155,63 +155,44 @@ FeeroLink に込められた思想や構想については、以下のファイ�
 → [docs/philosophy.md](docs/philosophy.md)
 
 
-# FeeroLink Viewer:尊厳を成立させる三層構造モデル / Three-layer Model of Dignity
+📘 Dignity-Centered Circular Model
+尊厳を成立させる円環構造モデル（英日併記）
+→[docs/VisualThoughtModels/dignity_model_en.jpg](docs/VisualThoughtModels/dignity_model_en.jpg)
 
-◆概要 / Overview
-このViewerは、「尊厳を成立させるための構造」を、複数の層にわたって可視化した事例です。
-上位の概念を支えるために、更に下位の層が存在する。
+This conceptual model visualizes the layered factors required to uphold human dignity.
+It is intended to serve as a universal design for both ethical system design and education.
 
+この構造モデルは、人間の尊厳を支えるための多層的な要素を円環で視覚化したものです。
+倫理設計や教育におけるユニバーサルな指針となることを意図しています。
 
--This viewer visualizes a multilayered conceptual model of what constitutes "dignity."
--Each outer layer supports the inner one, forming an interdependent structure.
+🌐 Structure Overview | 構造の概要
+Core Layer（中核層）
+・Dignity（尊厳）
 
+First Ring（第一円環）
+・Freedom（自由）, Autonomy（自己決定権）, Respect（尊重）, Human Rights（人権）
 
-◆構造 / Structure
-〇一層目: 心核 (コア) / Layer 1: Core
-　・尊厳 (Dignity)
+Second Ring（第二円環）
+・Dialogue（対話）, Access to Help（助けを求められること）,
+　Psychological Safety（安心できること）, Being Heard（話せなくても聴いてもらえること）,
+　Expression（表現）, Companionship（孤立しないこと）
 
+Outer Factors（外縁層）
+・Education（教育）, Law（法）, Support Systems（支援体制）,
+　Cultural Factors（文化的背景）, Mutual Understanding（相互理解）,
+　Elimination of Indifference（無関心の排除）
 
-〇二層目: 価値 / Layer 2: Values
-　・自由 (Freedom)
-　・自己決定権 (Autonomy)
-　・尊重 (Respect)
-　・人権 (Human Rights)
-　・表現 (Expression)
-
-
-〇三層目: 支援系 / Layer 3: Supports & Conditions
-　・安心できること (Psychological Safety)
-　・うまく話せなくても (Nonverbal Acceptance)
-　・聞いてもらえること (Being Heard)
-　・助けを求めること (Access to Help)
-　・対話があること (Dialogue)
-　・友情 (Companionship)
-　・法律 (Law)
-　・教育 (Education)
-　・支援体系 (Support Systems)
-　・文化・風土 (Cultural Factors)
+🖼️ Visual Diagram | 図版
+English:
+日本語版:
 
 
-◆ビューワー使用説明 / How to Use
-ードをクリックすると説明が表示されます
-タグでフィルターし、層を切り替えて表示
-JSONで元データを書き換えてから再表示することも可能
+🔗 Suggested use | 利用想定
+・AI ethics frameworks
+・福祉や人権教育での視覚教材
+・FeeroLink Viewerの構造定義データの補助設計資料
 
-
--Click on a node to see its explanation. Use the tag filters to toggle layers.
--You can also load a modified .json to view other versions of the structure.
-
-
-◆記事 / Notes
-本構造は、人間の尊厳を支えるための学習、支援、社会的条件を展開的に描いたモデルです
-FeeroLinkの「計算可能な思想構造」の一例として、ビューワーで実装されています
-
-
--This structure is a conceptual model representing the foundational elements for protecting dignity.
--It is implemented in FeeroLink as a prototype for computationally represented ethical frameworks.
-
-
-
+ 
 
 ## 未来構想
 FeeroLinkの将来的な展開については [FUTURE.md](docs/FUTURE.md) に記載しています。
