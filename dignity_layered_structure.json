@@ -3,20 +3,16 @@
     {
       "data": {
         "id": "dignity",
-        "label": "尊厳”,
-     　 "tags": [
-     　   "core"
-    　  ],
-     　 "description": "存在の絶対的価値。守られるべき中心概念。"
-   　 }
+        "label": "尊厳",
+        "tags": ["core"],
+        "description": "存在の絶対的価値。守られるべき中心概念。"
+      }
     },
     {
       "data": {
         "id": "freedom",
         "label": "自由",
-        "tags": [
-          "values"
-        ],
+        "tags": ["values"],
         "description": "行動・思考・表現の自由。尊厳の前提条件。"
       }
     },
@@ -24,9 +20,7 @@
       "data": {
         "id": "autonomy",
         "label": "自己決定権",
-        "tags": [
-          "values"
-        ],
+        "tags": ["values"],
         "description": "自分のことを自分で決める権利。"
       }
     },
@@ -35,7 +29,7 @@
         "id": "respect",
         "label": "尊重",
         "tags": [
-          "values"
+        "values"
         ],
         "description": "他者の存在や意思を侵さない態度。"
       }
@@ -43,19 +37,19 @@
     {
       "data": {
         "id": "human_rights",
-        "label": "人権"
-      },
-      "tags": [
+        "label": "人権",
+        "tags": [
         "values"
-      ],
-      "description": "誰にでも保障される基本的な権利。"
+        ],
+        "description": "誰にでも保障される基本的な権利。"
+      }
     },
     {
       "data": {
         "id": "expression",
         "label": "表現",
         "tags": [
-          "values"
+        "values"
         ],
         "description": "考えや感情を言葉や行動で外に出す力。"
       }
@@ -65,7 +59,7 @@
         "id": "safety",
         "label": "安心できること",
         "tags": [
-          "supports"
+        "supports"
         ],
         "description": "怖いときに逃げたり助けを求められる環境。"
       }
@@ -84,8 +78,8 @@
       "data": {
         "id": "care",
         "label": "助けを求められること",
-        "tags": [
-          "supports"
+      "tags": [
+        "supports"
         ],
         "description": "困ったときに誰かに言っていいと感じられること。"
       }
@@ -93,12 +87,12 @@
     {
       "data": {
         "id": "expression_support",
-        "label": "うまく話せなくても聞いてもらえる"
-      },
-      "tags": [
-        "supports"
-      ],
-      "description": "話し方に関係なく伝えようとする気持ちを受け止めてもらえる。"
+        "label": "うまく話せなくても聞いてもらえる",
+        "tags": [
+          "supports"
+        ],
+        "description": "話し方に関係なく伝えようとする気持ちを受け止めてもらえる。"
+      }
     },
     {
       "data": {
@@ -108,7 +102,7 @@
           "supports"
         ],
         "description": "他の人と違っていても責められずにいられる空気。"
-        }
+      }
     },
     {
       "data": {
@@ -149,7 +143,7 @@
         ],
         "description": "日常の中にある価値観や無意識の規範。"
       }
-    },
+    }
   ],
   "edges": [
     {
