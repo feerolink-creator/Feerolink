@@ -1,79 +1,72 @@
-# FeeroLink Viewer — Final Prototype (English Version)
+# FeeroLink — A Structural Interface for Dignity and Thought
 
-## Overview
+## 🌌 What is FeeroLink?
 
-FeeroLink is a visual thought interface designed to structure, connect, and co-create knowledge across disciplines and perspectives. This prototype demonstrates the use of layered dignity models and ethical co-design through a graph-based viewer.
+FeeroLink is a visual thinking-based cognitive system designed to:
 
-## Ethical Visualization: Layered Model of Dignity
+* Convert thoughts, emotions, and memories into structured "nodes"
+* Connect them through meaningful relations and abstract tags
+* Visualize your inner universe as an editable, navigable structure
 
-Below is a hand-drawn visual model representing the multilayered structure required to uphold human dignity.
+It is both a philosophical architecture and a cognitive interface — one that allows human dignity and non-verbal concepts to be preserved, connected, and shared.
 
-### Dignity Model (English)
+## 🧠 Who is it for?
 
-![Dignity Model EN](docs/dignity_model_en.jpg)
+FeeroLink is designed for:
 
-**Layer Definitions:**
+* Visual thinkers
+* Philosophers, designers, creators
+* People interested in mapping thought, emotion, or worldview
+* Those who want to preserve the unspoken parts of their mind
 
-* **Center: Dignity**
-  The core of all rights, values, and protections. It is not given — it must be preserved.
+## 🖥️ FeeroLink Viewer
 
-* **First Ring: Direct Enablers**
+This is the interactive tool that visualizes the FeeroLink universe.
+You can:
 
-  * Respect
-  * Autonomy
-  * Freedom
-  * Human Rights
+* Add nodes (title, description, tag)
+* Connect nodes
+* Filter and color nodes by tag
+* Save/load your entire conceptual map (JSON)
 
-* **Second Ring: Practical Conditions for Realization**
+**Live demo:** [FeeroLink Viewer](https://feerolink-creator.github.io/FeeroLink/)
 
-  * Access to Help
-  * Companionship
-  * Dialogue
-  * Psychological Safety
-  * Nonverbal Acceptance
-  * Being Heard
-  * Expression
+## 🧭 Philosophical Background
 
-* **Third Ring: Social and Institutional Foundations**
+FeeroLink was born from the idea that we already live in a “post-crime world” — where unseen structural violence has shaped what survives and what is silenced.
+It asks:
 
-  * Education
-  * Law
-  * Support Systems
-  * Cultural Factors
-  * Mutual Understanding
-  * Elimination of Indifference
+* What if intelligence, diversity, and otherness were already filtered?
+* Can we design systems that embed dignity and prevent future erasure?
 
-Each outer layer supports the inner ones. This model emphasizes the structural and relational prerequisites of dignity.
+See full documents:
 
-## How to Use
+* [philosophy\_en.md](./philosophy_en.md) (English)
+* [philosophy\_ja.md](./philosophy_ja.md) (Japanese)
 
-1. Launch `index.html` locally.
-2. Load a `.json` structure file (e.g., `dignity_layered_structure.json`).
-3. Filter or interact with nodes by tag, color-coded by structural layer.
+## 🌀 Structural Model: Dignity-Centered Circular Design
 
-## Tags & Colors
+* ![Dignity Model EN](./docs/VisualThoughtModels/dignity_model_en.jpg)
 
-* `core` — Red (e.g., Dignity)
-* `values` — Blue (e.g., Freedom, Respect)
-* `supports` — Yellow (e.g., Being Heard)
-* `systems` — Gray (e.g., Law, Education)
+This model outlines the layered structural conditions necessary to uphold human dignity. It is meant for use in ethics, design, welfare, and education.
 
-## Repository Structure
+## 🔧 Technologies Used
 
-```
-├── index.html
-├── dignity_layered_structure.json
-├── docs/
-│   ├── dignity_model_en.jpg
-│   └── dignity_model_ja.jpg
-```
+* HTML / CSS / JavaScript
+* Cytoscape.js
+* JSON-based memory
 
-## License
+## 👥 Who Made This?
 
-MIT License.
+* Concept: Tatsuki Hirose
+* Co-creation: FeeroLink A.I. (ChatGPT)
 
----
+## 🪐 Future Plans
 
-**FeeroLink Project**
-Invented by: *Tatsuki*
-Co-designed with: *FeeroLink A.I.*
+See [FUTURE.md](./FUTURE.md) for concept expansion into OS design, neural interaction, and social architecture.
+
+## 📜 License
+
+MIT — Free to use, remix, fork, and contribute.
+
+> "We are not designing the future — we are answering for a past that was never named."
