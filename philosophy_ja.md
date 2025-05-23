@@ -62,6 +62,10 @@ AIは知性を模倣するためでなく、**倫理構造をともに反射し�
 
 FeeroLinkは“思想”であると同時に、“場を生成する設計”でもある。
 
+
+![FeeroLink Master Diagram – English](https://github.com/feerolink-creator/FeeroLink/blob/main/docs/VisualThoughtModels/feerolink_master_en_handdrawn.jpg?raw=true)
+
+
 ### FeeroLink Studio（構想）
 
 * 思想・倫理・支援・創作を統合的に実装するための社会的スタジオ
