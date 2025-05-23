@@ -123,7 +123,7 @@ FeeroLinkでは、視覚的思考（Visual Thinking）を通じて、世界を�
 
 For international readers, please refer to the full English README here:
 
-👉 [README_en.md (English)](./README_en.md)
+👉 [README_en.md (English)](./README_EN.md)
 
 This includes:
 - Overview of the FeeroLink project
