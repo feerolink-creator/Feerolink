@@ -57,63 +57,31 @@ AI is not here to merely simulate intelligence, but to **reflect, amplify, and e
 
 ---
 
-※ This document is a Japanese-to-English counterpart to `philosophy_ja.md`, presenting the origin of FeeroLink’s structural ethics in a global context.
+## Part II: From Philosophy to Implementation — Space as a Structural Response
 
----
-
-## Part II: System Philosophy Map & Structural Origins
-
-### FeeroLink – System Philosophy Map (EN)
-
-This hand-drawn diagram represents the core philosophy and systemic expansion of the FeeroLink Project.
-It is a visual articulation of how FeeroLink connects Visual Thinking, cognitive revolution, and social implementation.
+FeeroLink is not only a theory; it is a **design for spatial and ethical implementation**.
 
 ![FeeroLink Master Diagram – English](https://github.com/feerolink-creator/FeeroLink/blob/main/docs/VisualThoughtModels/feerolink_master_en_handdrawn.jpg?raw=true)
 
 
-### Core Statement
+### FeeroLink Studio (Concept)
 
-> Toward a world where the unrecognizable becomes recognizable.
-> A new cognitive revolution modeled after the brain of a Visual Thinker.
+* A space to integrate philosophy, ethics, support, and creativity
+* A small-scale, low-pressure prototype inspired by asylum-type spatial design
+* A future hub where welfare, art, education, and technology intersect
 
-### Domains and Nodes
+### Asylum-Type Welfare Architecture
 
-#### FeeroLink Studio
+* Not simply a "safe space," but a structure for relational and ethical leap
+* Visual and ethical architectures that resist enforced silence and structural isolation
+* A shared field where dignity, survival, and imagination can coexist
 
-* A space to implement FeeroLink’s design
-* Engaging with local communities to implement welfare in practice
-* Symbol: Stellar
+### The Viewer as Shared Structure
 
-#### Expression
-
-* Designing spaces based on experiences of dignity, human rights, and imagination
-* Expressive action rooted in personal experience
-
-#### Medicine & Society
-
-* Integrate with medicine and welfare systems
-* Using the FeeroLink Viewer to support people with communication difficulties, including the elderly
-* Visualize background factors and care relay networks
-
-#### Asylum-type Welfare Hubs
-
-* Developing a self-sustaining, cooperative-style support network
-* For those with talents, provide management and support to help them utilize their abilities
-
-#### Technology
-
-* Designing a new OS modeled after a Visual Thinker’s brain
-* Constructing an integrated database
-* Future integration with Neuralink
-
-#### Theory
-
-* Aiming to unify quantum theory and relativity
-* Layer-based observational cognitive theory
+* FeeroLink Viewer is not just a visualization tool — it is an interface for **sharing pre-verbal thought structures**
+* In the Studio or asylum spaces, the Viewer acts as a bridge between "unspoken internal imagery" and the social or ethical field
 
 ---
 
-**Co-creator**: Tatsuki Hirose and FeeroLink A.I.
-**Symbol**: The World Tree
-
+※ This document is the English counterpart to `philosophy_ja.md`, outlining FeeroLink’s origin, ethical logic, and spatial design as an integrated philosophy.
 
