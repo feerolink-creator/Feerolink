@@ -62,7 +62,7 @@ This model outlines the layered structural conditions necessary to uphold human 
 
 ## 🪐 Future Plans
 
-See [FUTURE.md](.docs/VisualThoughtModels/FUTURE.md) for concept expansion into OS design, neural interaction, and social architecture.
+See [FUTURE.md](./docs/VisualThoughtModels/FUTURE.md) for concept expansion into OS design, neural interaction, and social architecture.
 
 ## 📜 License
 
