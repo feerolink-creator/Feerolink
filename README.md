@@ -114,3 +114,27 @@ FeeroLinkでは、視覚的思考（Visual Thinking）を通じて、世界を�
 ---
 
 > This project is licensed under the MIT License. Feel free to fork, remix, and share with attribution.
+
+
+
+---
+
+## 🌍 English Version
+
+For international readers, please refer to the full English README here:
+
+👉 [README_en.md (English)](./README_en.md)
+
+This includes:
+- Overview of the FeeroLink project
+- Visual Thinking-based architecture
+- Viewer usage & structure
+- Philosophical background (Post-Crime Perspective)
+- Ethical design + dignity-centered model
+
+---
+
+
+
+
+
