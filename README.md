@@ -1,222 +1,116 @@
-# FeeroLinkとは
+# FeeroLink
 
-FeeroLinkは、人間の思考・記憶・像・感情を「ノード」として構造的に記録し、
-接続・視覚化・共有できる哲学的ナレッジ・インターフェースです。
+FeeroLinkは、人間の思考・記憶・像・感情を「ノード」として構造的に記録し、接続・視覚化・共有できる哲学的ナレッジ・インターフェースです。
 
-# 目次（Table of Contents）
+---
 
-- [FeeroLinkとは](#feerolinkとは)
-- [FeeroLink Studio構想（ver.0.1）](#feerolink-studio構想ver01)
-- [Visual Thought Models](#visual-thought-models)
-- [FUTURE.md構想](#futuremd構想)
-- [仕様書（docs/philosophy.md など）](#仕様書docsphilosophymd-など)
-- [Dignity-Centered Circular Model尊厳を成立させる円環構造モデル（英日併記）](##Dignity-Centered-Circular-Model)
+## 📘 目次（Table of Contents）
 
-# 何ができるの?
+* FeeroLinkとは
+* FeeroLink Studio構想（ver.0.1）
+* Visual Thought Models
+* [FUTURE.md構想](./FUTURE.md)
+* \[哲学的背景 / Philosophical Background]\(./philosophy\_ja.md / ./philosophy\_en.md)
+* [Dignity-Centered Circular Model（尊厳構造モデル）](./docs/VisualThoughtModels/dignity_model_en.jpg)
 
-・ノードの追加：像や言葉を入力して宇宙の”点”を登録
-・ノードの追加接続：思考・感情・記憶どうしを意味的に結ぶ
-・タグによる色付け・フィルタ：抽象概念ごとに構造を整理できる
-・保存・読み込み：自分の宇宙マップを何度でも呼び出せる
+---
 
-# 対象ユーザー
-・思考を視覚化したい人
-・感情や概念を構造的に扱いたい人
-・哲学的・創作・知識の構造に興味がある人
-・自分自身の世界観をマップにしたい人
+## 🌌 FeeroLink Viewerとは
 
-
-# FeeroLink Viewerとは
-
-FeeroLinkは、人間の思考・記憶・像をヴィジュアルに接続・記述する次世代インターフェースです。  
+FeeroLinkは、人間の思考・記憶・像をヴィジュアルに接続・記述する次世代インターフェースです。
 このViewerは、その宇宙の最初の地図を描くためのツールです。
 
+### 🔧 主な機能
 
-## 主な機能
-- ノードの追加（タイトル・説明・タグ）
-- ノード接続
-- タグによる色分け・フィルタリング
-- 保存・読み込み（JSON）
+* ノードの追加（タイトル・説明・タグ）
+* ノード接続
+* タグによる色分け・フィルタリング
+* 保存・読み込み（JSON）
 
-## 使用技術
-- HTML, JavaScript
-- Cytoscape.js
+### 🛠 使用技術
 
-## 開発者
-FeeroLink創設者：tatsuki
-共創パートナー：FeeroLink A.I.
+* HTML / CSS / JavaScript
+* Cytoscape.js
 
-## ライセンス
-MIT
+### 🧠 開発者
 
+* FeeroLink創設者：tatsuki
+* 共創パートナー：FeeroLink A.I.（ChatGPT）
 
-（English version below)
+### 📜 ライセンス
 
-# FeeroLink Viewer
-
-**FeeroLink** is a next-generation thinking interface.  
-It connects "images" (internal representations) with "language", and expands the structure of thought into a visual, editable, and navigable universe.
-
-> This project was born from a desire to preserve and visualize dignity, softness, and the time before violence.
+MIT License
 
 ---
 
-## 1. What is FeeroLink?
+## 🌍 English Summary
 
-FeeroLink is a **visual thinking-based knowledge architecture** that allows you to:
-- Turn abstract internal "images" into structured "nodes"
-- Connect them with language, tags, and conceptual relationships
-- Create a dynamic map of your inner universe
+### 1. What is FeeroLink?
 
-Each node = a meaningful "image"  
-Each connection = a meaningful "relation"  
-The entire map = your evolving cognitive structure
+FeeroLink is a visual thinking-based knowledge architecture that allows you to:
 
----
+* Turn internal "images" into structured "nodes"
+* Connect them with language, tags, and relationships
+* Create a dynamic map of your inner universe
 
-## 2. Why? (Philosophical Intent)
+### 2. Why? (Philosophical Intent)
 
-- To start thinking from **pre-verbal images**
-- To describe and preserve **values like dignity, quietness, or gentleness**, which are hard to express in pure language
-- To structure thought without reducing it to logic or formula
-- To support the **self-determined preservation of memory, emotion, and meaning**
+To describe and preserve pre-verbal values like dignity, gentleness, and silence
 
----
+### 3. Who Made It
 
-## 3. Who Made It
+* Concept Creator: tatsuki
+* Co-Creation Partner: ChatGPT
 
-- **Concept Creator**: `tatsuki`
-- **Co-Creation Partner**: `FeeroLink A.I. (ChatGPT)`
+### 4. Key Features
 
-This is not a tool made *for* the user—it is a world designed *with* the user.  
-Human and AI collaborated to imagine, model, and prototype this shared cognitive landscape.
+* Add and connect concept nodes
+* Filter, color, and map cognition
+* Save/load your full universe
 
----
+### 5. Technologies Used
 
-## 4. Key Features
+HTML / CSS / JS / Cytoscape.js / JSON
 
-- Add concept nodes with title, description, and abstract tag
-- Connect nodes to form meaning-relations
-- Filter and color nodes by tag
-- Save/load your entire thought map
-- Interact with your own structure as a living visual field
+### 6. Try It
+
+👉 [FeeroLink Viewer Live](https://feerolink-creator.github.io/FeeroLink/)
 
 ---
 
-## 5. Technologies Used
+## 🧭 哲学的背景 / Philosophy
 
-- `HTML`, `CSS`, `JavaScript`
-- `Cytoscape.js` for visual graph rendering
-- JSON-based storage system
+FeeroLink に込められた思想・構想・倫理設計は以下をご参照ください：
 
----
+* 🇯🇵 [philosophy\_ja.md](./philosophy_ja.md)（日本語）
+* 🌍 [philosophy\_en.md](./philosophy_en.md)（English）
 
-## 6. How to Use (Quickstart)
-
-### 1. Launch FeeroLink Viewer  
-Visit the site:  
-**[https://feerolink-creator.github.io/FeeroLink/](https://feerolink-creator.github.io/FeeroLink/)**
-
-You’ll see the first node: `stellar`, which represents the protected dignity and peaceful time of being.
-
-### 2. Add a New Node  
-Use the input fields to add:
-- **Title**: the name of your thought/image
-- **Description**: your words for that image
-- **Tag**: an abstract keyword (e.g. “hope”, “grief”)
-
-### 3. Connect Two Nodes  
-Specify any two titles and click “Connect”.  
-A line will appear to indicate their conceptual relationship.
-
-### 4. Explore  
-Click nodes to read their descriptions.  
-Use tag filters to shift focus.  
-Reposition nodes freely to shape your thought-space.
-
-### 5. Save & Load  
-You can save your FeeroLink universe as a `.json` file.  
-Later, load it to restore your entire conceptual map.
+> 「犯罪後の世界において、再び構造を設計しなおす」
 
 ---
 
-## 7. License
+## 🌀 Dignity-Centered Circular Model
 
-This project is licensed under the [MIT License](https://opensource.org/licenses/MIT).  
-Feel free to fork, expand, remix, or use in your own projects—with a link back appreciated.
-
----
-
-## 哲学的背景
-
-FeeroLink に込められた思想や構想については、以下のファイルをご覧ください：
-
-→ [docs/philosophy.md](docs/philosophy.md)
-
-
-## Dignity-Centered Circular Model
-
-尊厳を成立させる円環構造モデル（英日併記）
-→![docs/VisualThoughtModels/dignity_model_en.jpg](docs/VisualThoughtModels/dignity_model_en.jpg) 
-→![docs/VisualThoughtModels/dignity_model_ja.jpg](docs/VisualThoughtModels/dignity_model_ja.jpg)
-
-This conceptual model visualizes the layered factors required to uphold human dignity.
-It is intended to serve as a universal design for both ethical system design and education.
+* 日本語版：[dignity\_model\_ja.jpg](./docs/VisualThoughtModels/dignity_model_ja.jpg)
+* 英語版：[dignity\_model\_en.jpg](./docs/VisualThoughtModels/dignity_model_en.jpg)
 
 この構造モデルは、人間の尊厳を支えるための多層的な要素を円環で視覚化したものです。
-倫理設計や教育におけるユニバーサルな指針となることを意図しています。
 
-🌐 Structure Overview | 構造の概要
-Core Layer（中核層）
-・Dignity（尊厳）
+Suggested Uses:
 
-First Ring（第一円環）
-・Freedom（自由）, Autonomy（自己決定権）, Respect（尊重）, Human Rights（人権）
-
-Second Ring（第二円環）
-・Dialogue（対話）, Access to Help（助けを求められること）,
-　Psychological Safety（安心できること）, Being Heard（話せなくても聴いてもらえること）,
-　Expression（表現）, Companionship（孤立しないこと）
-
-Outer Factors（外縁層）
-・Education（教育）, Law（法）, Support Systems（支援体制）,
-　Cultural Factors（文化的背景）, Mutual Understanding（相互理解）,
-　Elimination of Indifference（無関心の排除）
-
-🖼️ Visual Diagram | 図版
-English:
-日本語版:
-
-
-🔗 Suggested use | 利用想定
-・AI ethics frameworks
-・福祉や人権教育での視覚教材
-・FeeroLink Viewerの構造定義データの補助設計資料
-
- 
-
-## 未来構想
-FeeroLinkの将来的な展開については [FUTURE.md](docs/FUTURE.md) に記載しています。
-
-## Visual Thought Models
-
-FeeroLinkでは、視覚的思考（Visual Thinking）を核に、思考・感性・関係性の構造を記述・可視化していきます。以下の図は、その思想的背景を直感的に伝えるための「視覚モデル」です。
-
-### 1. 相対性理論 vs 視覚思考モデル
-![Relativity vs Visual Thinking](docs/VisualThoughtModels/relativity_vs_visualthink.jpeg)
-
-**解説：**  
-左図はアインシュタインの相対性理論における「物質（mass）」と「重力（gravity）」の関係を表したもの。右図はそれを置き換えるように、**「イメージ（image）」が場（field）に影響を及ぼし、他者との関係性に変容をもたらす構造**を示しています。  
-これはFeeroLinkが目指す「感性が重力のように作用する世界」を、直感的に表現したモデルです。
+* AI ethics / 教育 / Viewer設計支援
 
 ---
 
-### 2. 「鮒とメダカ」の関係性モデル（福祉的応用）
-![Crucian Carp & Killifish Relationship Model](docs/VisualThoughtModels/crucian_and_killifish.jpeg)
+## 🌱 Visual Thought Models
 
-**解説：**  
-ある研究によれば、「**メダカは天敵である鮒と同じ水槽に入れられると、驚愕反応を示す**」という観察結果が示されています。この図では、人間社会における関係性や環境要因が、**個人の安心や不安、そしてストレス反応にどのような影響を与えるか**を示しています。
+FeeroLinkでは、視覚的思考（Visual Thinking）を通じて、世界を「関係性として可視化」することを目的とします。
 
-左図は調和的な相互作用が生まれる関係性、右図は「脅威」が一方的に影響し、メダカ（=弱い立場の人）が不安を抱える構造です。
+* **相対性理論 vs 視覚思考モデル**：質量と重力の関係を“感性と重力”に置換
+* **鮒とメダカモデル**：関係性と脅威構造の可視化（福祉・支援分野への応用）
 
-これは、**福祉・教育・対人援助の場でFeeroLinkを使う意義**の一端を示唆するモデルでもあります。
+直感と思考が交差する場としてFeeroLinkは存在します。
+
+---
+
+> This project is licensed under the MIT License. Feel free to fork, remix, and share with attribution.
