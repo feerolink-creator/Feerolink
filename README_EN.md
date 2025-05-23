@@ -29,8 +29,7 @@ You can:
 * Filter and color nodes by tag
 * Save/load your entire conceptual map (JSON)
 
-**Live demo:** [FeeroLink Viewer](https://feerolink-creator.github.io/FeeroLink/)
-
+**Live demo:** [FeeroLink Viewer](https://feerolink-creator.github.io/feerolink-ethics)
 ## 🧭 Philosophical Background
 
 FeeroLink was born from the idea that we already live in a “post-crime world” — where unseen structural violence has shaped what survives and what is silenced.
@@ -63,7 +62,7 @@ This model outlines the layered structural conditions necessary to uphold human 
 
 ## 🪐 Future Plans
 
-See [FUTURE.md](./FUTURE.md) for concept expansion into OS design, neural interaction, and social architecture.
+See [FUTURE.md](./docs/VisualThoughtModels/FUTURE.md) for concept expansion into OS design, neural interaction, and social architecture.
 
 ## 📜 License
 
