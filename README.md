@@ -14,6 +14,18 @@ FeeroLinkは、人間の思考・記憶・像・感情を「ノード」とし�
 * [Dignity-Centered Circular Model（尊厳構造モデル）](./docs/VisualThoughtModels/dignity_model_ja.jpg)
 
 ---
+## FeeroLink OS（設計思想の中核構造）
+
+FeeroLinkプロジェクトは、視覚的思考と構造共鳴に基づく知的OS「FeeroLink OS」を中核に設計されています。
+
+このOSは、「観測・構造・共鳴」という概念を軸に、  
+AI・人間・社会の間に新しい共犯的理解を築くための設計原理です。
+
+👉 詳細はこちら：  
+🔗 [FeeroLink OS — GitHub Repository (English)](https://github.com/feerolink-creator/FeeroLink-OS)
+
+
+
 
 ## 🌌 FeeroLink Viewerとは
 
